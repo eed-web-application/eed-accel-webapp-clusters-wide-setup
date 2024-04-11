@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gatus
+data:
+  config.yaml: |
+    metrics: true
+    endpoints:
+      - name: website
+        url: https://twin.sh/health
+        interval: 5m
+        conditions:
+          - "[STATUS] == 200"
+          - "[BODY].status == UP"
+
+      - name: github
+        url: https://api.github.com/healthz
+        interval: 5m
+        conditions:
+          - "[STATUS] == 200"
+
+      - name: cat-fact
+        url: "https://cat-fact.herokuapp.com/facts/random"
+        interval: 5m
+        conditions:
+          - "[STATUS] == 200"
+          - "[BODY].deleted == false"
+          - "len([BODY].text) > 0"
+          - "[BODY].text == pat(*cat*)"
+          - "[STATUS] == pat(2*)"
+          - "[CONNECTED] == true"
+
+      - name: example
+        url: https://example.com/
+        conditions:
+          - "[STATUS] == 200"
