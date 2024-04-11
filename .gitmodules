@@ -2,3 +2,4 @@
 	path = applications/elogs-plus
 	url = git@github.com:eed-web-application/elog-plus-deployment.git
 	branch = main
+	ignore = all
