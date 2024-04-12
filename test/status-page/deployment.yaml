@@ -1,26 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: monitoror
+  name: kener
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: monitoror
+      app: kener
   template:
     metadata:
-      name: monitoror
       labels:
-        app: monitoror
+        app: kener
     spec:
       terminationGracePeriodSeconds: 5
       containers:
-        - image: monitoror/monitoror
+        - name: kener
+          image: rajnandan1/kener
           imagePullPolicy: IfNotPresent
-          name: monitoror
           ports:
-            - containerPort: 8080
-              name: http
+            - name: http
+              containerPort: 3000
               protocol: TCP
           resources:
             limits:
@@ -30,12 +29,27 @@ spec:
               cpu: 50m
               memory: 30M
           volumeMounts:
-            - mountPath: /config
-              name: monitoror-config
-          env:
-            - name: MO_CONFIG
-              value: "/config/config.json"
+            - name: kener-volume
+              mountPath: /config/static
+            - name: site-config
+              mountPath: /config/site.yaml
+              subPath: site.yaml
+            - name: monitors-config
+              mountPath: /config/monitors.yaml
+              subPath: monitors.yaml
       volumes:
-        - configMap:
-            name: monitoror
-          name: monitoror-config
+        - name: kener-volume
+          persistentVolumeClaim:
+            claimName: kener-volume
+        - name: site-config
+          configMap:
+            name: kener
+            items:
+              - key: site.yaml
+                path: site.yaml
+        - name: monitors-config
+          configMap:
+            name: kener
+            items:
+              - key: monitors.yaml
+                path: monitors.yaml

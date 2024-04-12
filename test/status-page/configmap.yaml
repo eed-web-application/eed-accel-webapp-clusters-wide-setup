@@ -1,28 +1,29 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: monitoror
+  name: kener
 data:
-  config.json: |
-    {
-      "version": "2.0",
-      "columns": 2,
-      "tiles": [
-        {
-          "type": "PORT",
-          "label": "Welcome config example",
-          "params": {
-            "hostname": "127.0.0.1",
-            "port": 8080
-          }
-        },
-        {
-          "type": "HTTP-RAW",
-          "label": "Monitoror stars",
-          "params": {
-            "url": "https://github.com/monitoror/monitoror",
-            "regex": "(\\d+) users starred"
-          }
-        }
-      ]
-    }
+  site.yaml: |
+    title: "Kener"
+    home: "/"
+    logo: "/logo.svg"
+    github:
+      owner: "bisegni"
+      repo: "kener"
+      incidentSince: 72
+    metaTags:
+      description: "Your description"
+      keywords: "keyword1, keyword2"
+    nav:
+      - name: "Documentation"
+        url: "/docs"
+    hero:
+      title: Kener is a Open-Source Status Page System
+      subtitle: Let your users know what's going on.
+  
+  monitors.yaml: |
+    - name: Google Search
+      tag: "google-search"
+      api:
+          method: GET
+          url: https://www.google.com/webhp
