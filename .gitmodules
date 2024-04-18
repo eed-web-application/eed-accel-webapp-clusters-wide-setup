@@ -13,3 +13,8 @@
 	url = git@github.com:eed-web-application/core-work-management-deployment.git
 	branch = main
 	ignore = all
+[submodule "deployment/core-build-system"]
+	path = deployment/core-build-system
+	url = git@github.com:eed-web-application/core-build-system-deployment.git
+	branch = main
+	ignore = all
