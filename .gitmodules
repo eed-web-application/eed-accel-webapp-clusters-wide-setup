@@ -1,5 +1,15 @@
-[submodule "applications/elogs-plus"]
-	path = applications/elogs-plus
+[submodule "deployment/elogs-plus"]
+	path = deployment/elogs-plus
 	url = git@github.com:eed-web-application/elog-plus-deployment.git
+	branch = main
+	ignore = all
+[submodule "deployment/core-inventory-system"]
+	path = deployment/core-inventory-system
+	url = git@github.com:eed-web-application/core-inventory-system.git
+	branch = main
+	ignore = all
+[submodule "deployment/core-work-management"]
+	path = deployment/core-work-management
+	url = git@github.com:eed-web-application/core-work-management-deployment.git
 	branch = main
 	ignore = all
