@@ -5,7 +5,7 @@
 	ignore = all
 [submodule "deployment/core-inventory-system"]
 	path = deployment/core-inventory-system
-	url = git@github.com:eed-web-application/core-inventory-system.git
+	url = git@github.com:eed-web-application/core-inventory-system-deployment.git
 	branch = main
 	ignore = all
 [submodule "deployment/core-work-management"]
