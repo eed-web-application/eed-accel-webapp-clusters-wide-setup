@@ -4,7 +4,7 @@ metadata:
   name: eed-cluster
 spec:
   kafka:
-    version: 3.4.0
+    version: 3.6.1
     replicas: 3
     authorization:
       type: simple
@@ -42,6 +42,26 @@ spec:
             - broker: 2
               annotations:
                 metallb.universe.tf/address-pool: sdf-services
+    vmOptions:
+      -XX:
+        UseG1GC: true
+        MaxGCPauseMillis: 20
+    template:
+      pod:
+        metadata:
+          annotations:
+            prometheus.io/scrape: true
+            prometheus.io/path: /metrics
+            prometheus.io/port: '9404'
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: strimzi.io/name
+                      operator: In
+                      values: [accel-webapp-dev]
+                topologyKey: kubernetes.io/hostname
     readinessProbe:
       initialDelaySeconds: 15
       timeoutSeconds: 5
