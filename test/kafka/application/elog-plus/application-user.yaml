@@ -46,6 +46,41 @@ spec:
           - Read
           - Write
       - resource:
+          type: topic
+          name: elog-plus-import-entry
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: elog-plus-import-entry-retry-2000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: elog-plus-import-entry-retry-4000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: elog-plus-import-entry-dlt
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+      - resource:
           type: group
           name: elog-plus-group
           patternType: literal
