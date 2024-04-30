@@ -17,9 +17,9 @@ jobs:
               custom-docker
             sparse-checkout-cone-mode: false
         - name: Checkout source code
-          uses: actions/checkout@v4
-          with:
-            repository: rajnandan1/kener
+          run: |
+            git clone https://github.com/rajnandan1/kener.git ${{ github.workspace }}/kener
+            ll -la
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Log in to the Container registry
