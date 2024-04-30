@@ -12,14 +12,14 @@ jobs:
         - name: Checkout source code
           uses: actions/checkout@v4
           with:
-            repository: rajnandan1/kener
-        - name: Checkout source code
-          uses: actions/checkout@v4
-          with:
             clean: false
             sparse-checkout: |
               custom-docker
             sparse-checkout-cone-mode: false
+        - name: Checkout source code
+          uses: actions/checkout@v4
+          with:
+            repository: rajnandan1/kener
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Log in to the Container registry
