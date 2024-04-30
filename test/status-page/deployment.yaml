@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
         - name: kener
-          image: rajnandan1/kener
+          image: ghcr.io/eed-web-application/eed-accel-webapp-clusters-wide-setup/kener:sha-d3be85b
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
@@ -53,3 +53,5 @@ spec:
             items:
               - key: monitors.yaml
                 path: monitors.yaml
+      imagePullSecrets:
+      - name: gh-secret

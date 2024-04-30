@@ -36,7 +36,7 @@ jobs:
           id: build_and_push
           with:
             context: .
-            file: ./Dockerfile
+            file: ./docker/KenerDockerfile
             push: true
             provenance: false
             tags: ${{ steps.meta.outputs.tags }}
