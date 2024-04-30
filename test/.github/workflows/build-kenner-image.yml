@@ -1,0 +1,55 @@
+name: Build and Deploy Docker Image
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+
+jobs:
+  build-docker-images:
+      name: Build and Publish Docker Image
+      runs-on: ubuntu-latest
+      needs: build_and_test
+      outputs:
+        IMAGE_TO_DEPLOY: ${{ steps.meta.outputs.tags }}
+      steps:
+        - name: Checkout source code
+          uses: actions/checkout@v3
+        - name: Download artifact
+          uses: actions/download-artifact@v3
+          with:
+            name: ApplicationJar
+            path: build/libs
+        - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v2
+        - name: Log in to the Container registry
+          uses: docker/login-action@v2
+          with:
+            registry: ${{ env.REGISTRY }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+        - name: Docker Metadata
+          id: meta
+          uses: docker/metadata-action@v4
+          with:
+            images: ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            tags: |
+              type=sha
+              latest
+            labels: |
+              maintainer=bisegni@slac.stanford.edu
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v5
+          id: build_and_push
+          with:
+            context: .
+            file: ./status-page/docker/Dockerfile
+            push: true
+            provenance: false
+            tags: ${{ steps.meta.outputs.tags }}
+            labels: ${{ steps.meta.outputs.labels }}
+            build-args: |
+              GH_USERNAME=${{ secrets.GH_PACKAGE_USERNAME }}
+              GH_TOKEN=${{ secrets.GH_PACKAGE_TOKEN }}
+            platforms: linux/amd64,linux/arm64

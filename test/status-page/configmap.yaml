@@ -17,6 +17,7 @@ data:
     nav:
       - name: "Documentation"
         url: "/docs"
+    basePath: "/status"
     hero:
       title: Kener is a Open-Source Status Page System
       subtitle: Let your users know what's going on.
