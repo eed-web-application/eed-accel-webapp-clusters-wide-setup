@@ -11,11 +11,6 @@ jobs:
       steps:
         - name: Checkout source code
           uses: actions/checkout@v4
-          with:
-            clean: false
-            sparse-checkout: |
-              custom-docker
-            sparse-checkout-cone-mode: false
         - name: Checkout source code
           run: |
             git clone https://github.com/rajnandan1/kener.git ${{ github.workspace }}/kener
