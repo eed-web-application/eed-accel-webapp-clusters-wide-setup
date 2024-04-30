@@ -1,6 +1,9 @@
 name: Build and Deploy Kener Docker Image
 on:
   workflow_dispatch:
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: kener
 jobs:
   build-docker-images:
       name: Build and Publish Docker Image
