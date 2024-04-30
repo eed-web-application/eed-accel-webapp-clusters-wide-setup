@@ -1,26 +1,15 @@
-name: Build and Deploy Docker Image
-
+name: Build and Deploy Kener Docker Image
 on:
-  # push:
-  #   branches:
-  #     - main
   workflow_dispatch:
-
 jobs:
   build-docker-images:
       name: Build and Publish Docker Image
       runs-on: ubuntu-latest
-      needs: build_and_test
-      outputs:
-        IMAGE_TO_DEPLOY: ${{ steps.meta.outputs.tags }}
       steps:
         - name: Checkout source code
           uses: actions/checkout@v3
-        - name: Download artifact
-          uses: actions/download-artifact@v3
           with:
-            name: ApplicationJar
-            path: build/libs
+            repository: rajnandan1/kener
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Log in to the Container registry
@@ -44,7 +33,7 @@ jobs:
           id: build_and_push
           with:
             context: .
-            file: ./status-page/docker/Dockerfile
+            file: ./Dockerfile
             push: true
             provenance: false
             tags: ${{ steps.meta.outputs.tags }}
@@ -52,4 +41,5 @@ jobs:
             build-args: |
               GH_USERNAME=${{ secrets.GH_PACKAGE_USERNAME }}
               GH_TOKEN=${{ secrets.GH_PACKAGE_TOKEN }}
+              KENER_BASE_PATH=/status
             platforms: linux/amd64,linux/arm64
