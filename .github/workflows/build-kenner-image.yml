@@ -13,6 +13,12 @@ jobs:
           uses: actions/checkout@v3
           with:
             repository: rajnandan1/kener
+        - name: Checkout source code
+          uses: actions/checkout@v3
+          with:
+            sparse-checkout: |
+              custom-docker
+            sparse-checkout-cone-mode: false
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
         - name: Log in to the Container registry
@@ -36,7 +42,7 @@ jobs:
           id: build_and_push
           with:
             context: .
-            file: ./docker/KenerDockerfile
+            file: ./custom-docker/KenerDockerfile
             push: true
             provenance: false
             tags: ${{ steps.meta.outputs.tags }}
