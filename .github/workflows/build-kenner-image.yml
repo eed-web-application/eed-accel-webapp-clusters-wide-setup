@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: kener
+  IMAGE_NAME: ${{ github.repository }}
 jobs:
   build-docker-images:
       name: Build and Publish Docker Image
@@ -25,7 +25,7 @@ jobs:
           id: meta
           uses: docker/metadata-action@v4
           with:
-            images: ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            images: ${{env.REGISTRY }}/${{ env.IMAGE_NAME }}/kener
             tags: |
               type=sha
               latest
