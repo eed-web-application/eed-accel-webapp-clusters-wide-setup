@@ -17,6 +17,9 @@ spec:
         - name: kener
           image: ghcr.io/eed-web-application/eed-accel-webapp-clusters-wide-setup/kener:latest
           imagePullPolicy: IfNotPresent
+          env:
+            - name: KENER_BASE_PATH
+              value: /status
           ports:
             - name: http
               containerPort: 3000

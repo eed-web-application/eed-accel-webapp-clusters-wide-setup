@@ -4,9 +4,9 @@ metadata:
   name: kener
 data:
   site.yaml: |
-    title: "Kener"
-    home: "/"
-    logo: "/logo.svg"
+    title: "EED Web app status page"
+    home: "/status"
+    # logo: "/logo.svg"
     github:
       owner: "bisegni"
       repo: "kener"
@@ -17,14 +17,23 @@ data:
     nav:
       - name: "Documentation"
         url: "/docs"
-    basePath: "/status"
     hero:
-      title: Kener is a Open-Source Status Page System
-      subtitle: Let your users know what's going on.
+      title: EED Web app status page
+      subtitle:
   
   monitors.yaml: |
-    - name: Google Search
-      tag: "google-search"
+    - name: Elog
+      tag: "logging"
       api:
           method: GET
-          url: https://www.google.com/webhp
+          url: http://elog-plus-backend-service.elog-plus/actuator/health
+    - name: Core Work management
+      tag: "ticket"
+      api:
+          method: GET
+          url: http://core-build-system-service.core-build-system/actuator/health
+    - name: Core Inventory System
+      tag: "inventory"
+      api:
+          method: GET
+          url: http://core-inventory-system-service.core-inventory-system/actuator/health
