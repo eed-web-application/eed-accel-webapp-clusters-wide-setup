@@ -8,6 +8,7 @@ resources:
 - configmap.yaml
 - storage.yaml
 - docker-config-secrets.yaml
+- application-secrets.yaml
 
 generatorOptions:
  disableNameSuffixHash: true

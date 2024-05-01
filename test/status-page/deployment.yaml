@@ -17,6 +17,9 @@ spec:
         - name: kener
           image: ghcr.io/eed-web-application/eed-accel-webapp-clusters-wide-setup/kener:latest
           imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: application-secrets
           env:
             - name: KENER_BASE_PATH
               value: /status
