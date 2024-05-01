@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
         - name: kener
-          image: ghcr.io/eed-web-application/eed-accel-webapp-clusters-wide-setup/kener:sha-d3be85b
+          image: ghcr.io/eed-web-application/eed-accel-webapp-clusters-wide-setup/kener:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
