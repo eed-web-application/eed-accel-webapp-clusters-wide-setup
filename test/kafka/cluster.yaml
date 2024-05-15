@@ -44,8 +44,8 @@ spec:
                 metallb.universe.tf/address-pool: sdf-services
     vmOptions:
       "-XX":
-        "UseG1GC": "true"
-        "MaxGCPauseMillis": "20"
+        "UseG1GC": true
+        "MaxGCPauseMillis": 20
     template:
       pod:
         metadata:
