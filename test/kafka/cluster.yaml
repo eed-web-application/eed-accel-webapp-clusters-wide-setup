@@ -50,7 +50,7 @@ spec:
       pod:
         metadata:
           annotations:
-            prometheus.io/scrape: true
+            prometheus.io/scrape: "true"
             prometheus.io/path: /metrics
             prometheus.io/port: '9404'
         affinity:
