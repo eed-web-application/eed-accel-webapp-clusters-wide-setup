@@ -8,6 +8,3 @@ resources:
 - test-auth-topic.yaml
 - test-auth-topic-user.yaml
 - admin-user.yaml
-generatorOptions:
-  annotations:
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
