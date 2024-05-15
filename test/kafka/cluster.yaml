@@ -4,7 +4,7 @@ metadata:
   name: eed-cluster
 spec:
   kafka:
-    version: 3.6.1
+    version: 3.6.2
     replicas: 3
     authorization:
       type: simple
@@ -46,6 +46,13 @@ spec:
       "-XX":
         "UseG1GC": true
         "MaxGCPauseMillis": 20
+    resources:
+      requests:
+        memory: 4Gi
+        cpu: "2"
+      limits:
+        memory: 6Gi
+        cpu: "4"
     template:
       pod:
         metadata:
