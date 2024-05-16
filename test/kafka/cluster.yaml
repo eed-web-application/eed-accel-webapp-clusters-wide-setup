@@ -42,10 +42,10 @@ spec:
             - broker: 2
               annotations:
                 metallb.universe.tf/address-pool: sdf-services
-    vmOptions:
-      "-XX":
-        "UseG1GC": true
-        "MaxGCPauseMillis": 20
+    # vmOptions:
+    #   "-XX":
+    #     "UseG1GC": true
+    #     "MaxGCPauseMillis": 20
     resources:
       requests:
         memory: 4Gi
