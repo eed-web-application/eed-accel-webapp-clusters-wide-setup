@@ -16,14 +16,15 @@ spec:
           patternType: literal
         operations:
           - Describe
-          - Write
-        host: "*"
-      - resource:
-          type: group
-          name: core-work-management-group
-          patternType: literal
-        operations:
-          - Describe
           - Read
           - Write
         host: "*"
+      # - resource:
+      #     type: group
+      #     name: core-work-management-group
+      #     patternType: literal
+      #   operations:
+      #     - Describe
+      #     - Read
+      #     - Write
+      #   host: "*"
