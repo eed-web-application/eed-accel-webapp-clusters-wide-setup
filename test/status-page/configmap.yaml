@@ -6,7 +6,6 @@ data:
   site.yaml: |
     title: "EED Web app status page"
     home: "/status"
-    # logo: "/logo.svg"
     github:
       owner: "bisegni"
       repo: "kener"
