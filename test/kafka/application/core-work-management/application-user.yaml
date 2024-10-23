@@ -19,12 +19,82 @@ spec:
           - Read
           - Write
         host: "*"
-      # - resource:
-      #     type: group
-      #     name: core-work-management-group
-      #     patternType: literal
-      #   operations:
-      #     - Describe
-      #     - Read
-      #     - Write
-      #   host: "*"
+      - resource:
+          type: topic
+          name: cwm-preview-creation
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: cwm-preview-creation-retry-2000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: cwm-preview-creation-retry-4000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: cwm-preview-creation-dlt
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+      - resource:
+          type: topic
+          name: workflow-processing
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: workflow-processing-retry-2000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: workflow-processing-retry-4000
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
+      - resource:
+          type: topic
+          name: workflow-processing-dlt
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+      - resource:
+          type: group
+          name: core-work-management-group
+          patternType: literal
+        operations:
+          - Describe
+          - Read
+          - Write
+        host: "*"
