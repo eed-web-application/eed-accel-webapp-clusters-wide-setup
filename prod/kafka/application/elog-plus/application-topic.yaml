@@ -1,0 +1,104 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-preview-creation
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-preview-creation-retry-2000
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-preview-creation-retry-4000
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-preview-creation-dlt
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-import-entry
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-import-entry-retry-2000
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-import-entry-retry-4000
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: elog-plus-import-entryn-dlt
+  labels:
+    strimzi.io/cluster: eed-cluster
+spec:
+  partitions: 1
+  replicas: 3
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+    
