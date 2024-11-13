@@ -31,17 +31,17 @@ spec:
         configuration:
           bootstrap:
             annotations:
-              metallb.universe.tf/address-pool: sdf-services
+              metallb.universe.tf/address-pool: sdf-ad-ingest
           brokers:
             - broker: 0
               annotations:
-                metallb.universe.tf/address-pool: sdf-services
+                metallb.universe.tf/address-pool: sdf-ad-ingest
             - broker: 1
               annotations:
-                metallb.universe.tf/address-pool: sdf-services
+                metallb.universe.tf/address-pool: sdf-ad-ingest
             - broker: 2
               annotations:
-                metallb.universe.tf/address-pool: sdf-services
+                metallb.universe.tf/address-pool: sdf-ad-ingest
     # vmOptions:
     #   "-XX":
     #     "UseG1GC": true
