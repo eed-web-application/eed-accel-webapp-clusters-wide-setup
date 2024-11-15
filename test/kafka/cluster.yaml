@@ -28,20 +28,20 @@ spec:
         tls: false
         authentication:
           type: scram-sha-512
-        configuration:
-          bootstrap:
-            annotations:
-              metallb.universe.tf/address-pool: sdf-ad-ingest
-          brokers:
-            - broker: 0
-              annotations:
-                metallb.universe.tf/address-pool: sdf-ad-ingest
-            - broker: 1
-              annotations:
-                metallb.universe.tf/address-pool: sdf-ad-ingest
-            - broker: 2
-              annotations:
-                metallb.universe.tf/address-pool: sdf-ad-ingest
+        # configuration:
+        #   bootstrap:
+        #     annotations:
+        #       metallb.universe.tf/address-pool: sdf-ad-ingest
+        #   brokers:
+        #     - broker: 0
+        #       annotations:
+        #         metallb.universe.tf/address-pool: sdf-ad-ingest
+        #     - broker: 1
+        #       annotations:
+        #         metallb.universe.tf/address-pool: sdf-ad-ingest
+        #     - broker: 2
+        #       annotations:
+        #         metallb.universe.tf/address-pool: sdf-ad-ingest
     # vmOptions:
     #   "-XX":
     #     "UseG1GC": true
@@ -69,10 +69,10 @@ spec:
                       operator: In
                       values: [accel-webapp-dev]
                 topologyKey: kubernetes.io/hostname
-        tolerations:
-          - key: node-role.kubernetes.io/ext-load-balancer
-            operator: Exists
-            effect: NoSchedule
+        # tolerations:
+        #   - key: node-role.kubernetes.io/ext-load-balancer
+        #     operator: Exists
+        #     effect: NoSchedule
     readinessProbe:
       initialDelaySeconds: 15
       timeoutSeconds: 5
