@@ -153,6 +153,12 @@ spec:
         com.linkedin.kafka.cruisecontrol.analyzer.goals.RackAwareGoal,
         com.linkedin.kafka.cruisecontrol.analyzer.goals.ReplicaCapacityGoal,
         com.linkedin.kafka.cruisecontrol.analyzer.goals.DiskCapacityGoal
+    metricsConfig:
+      type: jmxPrometheusExporter
+      valueFrom:
+        configMapKeyRef:
+          name: cruise-control-metrics
+          key: cruise-control-metrics-config.yml
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -337,3 +343,10 @@ data:
       labels:
         replicaId: "$2"
         memberType: "$3"
+  cruise-control-metrics-config.yml: |
+    # See https://github.com/prometheus/jmx_exporter for more info about JMX Prometheus Exporter metrics
+    lowercaseOutputName: true
+    rules:
+    - pattern: kafka.cruisecontrol<name=(.+)><>(\w+)
+      name: kafka_cruisecontrol_$1_$2
+      type: GAUGE
